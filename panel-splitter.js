@@ -1,3 +1,4 @@
+import runCallbacks from '@cfware/callback-array-once';
 import {ShadowElement, html} from '@cfware/shadow-element';
 
 import calculateSize from './calculate-size';
@@ -41,11 +42,7 @@ class PanelSplitter extends ShadowElement {
 			};
 
 			['blur', 'mouseup', 'mouseleave'].forEach(type => {
-				handlers[type] = () => {
-					cleanupFns.forEach(cleanup => {
-						cleanup();
-					});
-				};
+				handlers[type] = () => runCallbacks(cleanupFns);
 			});
 
 			selectionchange();
