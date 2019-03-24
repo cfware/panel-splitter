@@ -18,6 +18,10 @@ class PanelSplitter extends ShadowElement {
 		const selectionchange = () => window.getSelection().removeAllRanges();
 
 		this.addEventListener('mousedown', mouseDownEvent => {
+			if (mouseDownEvent.button !== 0) {
+				return;
+			}
+
 			const {previousElementSibling, nextElementSibling, vertical} = this;
 			const [clientSize, eventVar, styleVar] = getVariableNames(vertical);
 			const originalPosition = mouseDownEvent[eventVar];
