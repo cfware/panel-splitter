@@ -27,7 +27,7 @@
 	"homepage": "https://github.com/cfware/panel-splitter#readme",
 	"dependencies": {
 		"@cfware/callback-array-once": "^1.0.0",
-		"@cfware/shadow-element": "^0.6.0"
+		"@cfware/shadow-element": "^0.7.0"
 	},
 	"devDependencies": {
 		"@cfware/ava-selenium-manager": "^0.2.1",
