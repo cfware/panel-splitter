@@ -26,18 +26,18 @@
 	},
 	"homepage": "https://github.com/cfware/panel-splitter#readme",
 	"dependencies": {
-		"@cfware/callback-array-once": "^1.0.0",
+		"@cfware/callback-array-once": "^1.0.1",
 		"@cfware/shadow-element": "^0.7.0"
 	},
 	"devDependencies": {
-		"@cfware/ava-selenium-manager": "^0.2.1",
-		"@cfware/eslint-config-browser": "^0.3.0",
-		"@cfware/fastify-test-helper": "^0.2.3",
-		"@cfware/nyc": "^0.4.2",
-		"ava": "^1.4.1",
+		"@cfware/ava-selenium-manager": "^0.2.2",
+		"@cfware/eslint-config-browser": "^0.3.1",
+		"@cfware/fastify-test-helper": "^0.3.0",
+		"@cfware/nyc": "^0.5.0",
+		"ava": "^2.0.0",
 		"chromedriver": "^74.0.0",
 		"geckodriver": "^1.16.2",
-		"nyc": "^14.1.0",
+		"nyc": "^14.1.1",
 		"standard-version": "^6.0.1",
 		"xo": "^0.24.0"
 	},
