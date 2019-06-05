@@ -12,10 +12,6 @@
 	},
 	"author": "Corey Farrell",
 	"license": "MIT",
-	"files": [
-		"panel-splitter.js",
-		"calculate-size.js"
-	],
 	"keywords": [],
 	"repository": {
 		"type": "git",
