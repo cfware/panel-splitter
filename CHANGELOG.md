@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.5](https://github.com/cfware/panel-splitter/compare/v0.2.4...v0.2.5) (2019-06-06)
+
+
+### Bug Fixes
+
+* **package:** update @cfware/shadow-element to version 0.8.0 ([#13](https://github.com/cfware/panel-splitter/issues/13)) ([9d42a13](https://github.com/cfware/panel-splitter/commit/9d42a13))
+
+
+
 ### [0.2.4](https://github.com/cfware/panel-splitter/compare/v0.2.3...v0.2.4) (2019-06-05)
 
 
