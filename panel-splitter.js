@@ -1,7 +1,7 @@
 import runCallbacks from '@cfware/callback-array-once';
 import {ShadowElement, html} from '@cfware/shadow-element';
 
-import calculateSize from './calculate-size';
+import calculateSize from './calculate-size.js';
 
 function getVariableNames(vertical) {
 	if (vertical) {
