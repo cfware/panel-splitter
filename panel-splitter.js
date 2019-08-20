@@ -27,7 +27,9 @@ class PanelSplitter extends ShadowElement {
 			const originalPosition = mouseDownEvent[eventVar];
 			const originalNextSize = nextElementSibling[clientSize];
 			const totalSize = previousElementSibling[clientSize] + originalNextSize;
-			const cleanupFns = [];
+			const cleanupFns = [
+				() => this.dispatchEvent(new Event('moved'))
+			];
 
 			const handlers = {
 				mousemove: event => {
@@ -40,8 +42,13 @@ class PanelSplitter extends ShadowElement {
 						calcNext = totalSize - calcPrev;
 					}
 
-					previousElementSibling.style[styleVar] = `${calcPrev}px`;
-					nextElementSibling.style[styleVar] = `${calcNext}px`;
+					if (this.adjust !== 'after') {
+						previousElementSibling.style[styleVar] = `${calcPrev}px`;
+					}
+
+					if (this.adjust !== 'before') {
+						nextElementSibling.style[styleVar] = `${calcNext}px`;
+					}
 				}
 			};
 
@@ -76,6 +83,9 @@ class PanelSplitter extends ShadowElement {
 }
 
 PanelSplitter.define('panel-splitter', {
+	stringProps: {
+		adjust: 'both'
+	},
 	booleanProps: ['vertical'],
 	numericProps: {
 		snapPrev: 8,
