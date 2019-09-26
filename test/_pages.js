@@ -40,16 +40,6 @@ async function verifyAdjustments(t, eles, adjust, position) {
 	}
 }
 
-async function simulateDrag(t, eles, from, to, expected) {
-	const {selenium, snapshotImage, grabImage} = t.context;
-	const imageId = `from-${from}-to-${to}`;
-
-	const adjust = await executeDrag(selenium, 0, from, to);
-	await verifyAdjustments(t, eles, adjust, expected);
-	await snapshotImage(eles[0], imageId);
-	await grabImage(eles[0], imageId);
-}
-
 async function resizingTest(t) {
 	const {selenium, snapshotImage, grabImage} = t.context;
 	const eles = await Promise.all([
@@ -59,6 +49,14 @@ async function resizingTest(t) {
 		selenium.findElement({tagName: 'panel-splitter'})
 	]);
 	const [ele] = eles;
+	const simulateDrag = async (from, to, expected) => {
+		const imageId = `from-${from}-to-${to}`;
+
+		const adjust = await executeDrag(selenium, 0, from, to);
+		await verifyAdjustments(t, eles, adjust, expected);
+		await snapshotImage(eles[0], imageId);
+		await grabImage(eles[0], imageId);
+	};
 
 	await snapshotImage(ele, 'initial');
 	await grabImage(ele, 'initial');
@@ -68,18 +66,18 @@ async function resizingTest(t) {
 	await grabImage(ele, 'after-button-1-drag');
 	await verifyAdjustments(t, eles, 'none');
 
-	await simulateDrag(t, eles, 100, 90, 90);
-	await simulateDrag(t, eles, 90, 7, 8);
-	await simulateDrag(t, eles, 8, 6, 8);
-	await simulateDrag(t, eles, 8, 5, 8);
-	await simulateDrag(t, eles, 8, 4, 8);
-	await simulateDrag(t, eles, 8, 3, 0);
-	await simulateDrag(t, eles, 0, 192, 192);
-	await simulateDrag(t, eles, 192, 193, 192);
-	await simulateDrag(t, eles, 192, 194, 192);
-	await simulateDrag(t, eles, 192, 195, 192);
-	await simulateDrag(t, eles, 192, 196, 192);
-	await simulateDrag(t, eles, 192, 197, 200);
+	await simulateDrag(100, 90, 90);
+	await simulateDrag(90, 7, 8);
+	await simulateDrag(8, 6, 8);
+	await simulateDrag(8, 5, 8);
+	await simulateDrag(8, 4, 8);
+	await simulateDrag(8, 3, 0);
+	await simulateDrag(0, 192, 192);
+	await simulateDrag(192, 193, 192);
+	await simulateDrag(192, 194, 192);
+	await simulateDrag(192, 195, 192);
+	await simulateDrag(192, 196, 192);
+	await simulateDrag(192, 197, 200);
 }
 
 page('horizontal.html', resizingTest);
