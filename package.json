@@ -33,7 +33,7 @@
 		"ava": "^2.0.0",
 		"chromedriver": "^78.0.0",
 		"geckodriver": "^1.16.2",
-		"nyc": "^14.1.1",
+		"nyc": "^15.0.0",
 		"standard-version": "^7.0.0",
 		"xo": "^0.25.3"
 	},
