@@ -2,5 +2,4 @@
 
 module.exports = require('@cfware/nyc')
 	.fullCoverage()
-	.require('esm')
-	.settings;
+	.require('esm');

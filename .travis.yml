@@ -1,8 +1,5 @@
-language: node_js
-
-node_js:
-  - 12
-
-addons:
-  chrome: stable
-  firefox: latest
+version: ~> 1.0
+import:
+  - cfware/travis-ci:node-latest.yml
+  - cfware/travis-ci:browsers.yml
+  - cfware/travis-ci:npm-no-cache.yml

@@ -8,7 +8,7 @@
 		"test": "xo && nyc ava -sv"
 	},
 	"engines": {
-		"node": ">=8"
+		"node": ">=12"
 	},
 	"author": "Corey Farrell",
 	"license": "MIT",
@@ -26,14 +26,14 @@
 		"@cfware/shadow-element": "^0.10.0"
 	},
 	"devDependencies": {
-		"@cfware/ava-selenium-manager": "^0.2.2",
+		"@cfware/ava-selenium-manager": "^0.3.0",
 		"@cfware/eslint-config-browser": "^0.4.0",
-		"@cfware/fastify-test-helper": "^0.3.0",
-		"@cfware/nyc": "^0.5.0",
+		"@cfware/fastify-test-helper": "^0.4.0",
+		"@cfware/nyc": "^0.6.0",
 		"ava": "^2.0.0",
-		"chromedriver": "^78.0.0",
+		"chromedriver": "^79.0.0",
 		"geckodriver": "^1.16.2",
-		"nyc": "^14.1.1",
+		"nyc": "^15.0.0",
 		"standard-version": "^7.0.0",
 		"xo": "^0.25.3"
 	},
