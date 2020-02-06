@@ -1,7 +1,6 @@
-/* global window, document, MouseEvent */
 import {setup, page} from '@cfware/ava-selenium-manager';
 import {FastifyTestHelper} from '@cfware/fastify-test-helper';
-import fastifyTestHelperConfig from './_fastify-test-helper.config';
+import fastifyTestHelperConfig from './_fastify-test-helper.config.js';
 
 function executeDrag(selenium, button, from, to) {
 	return selenium.executeScript((button, from, to) => {
@@ -27,14 +26,14 @@ async function verifyAdjustments(t, eles, adjust, position) {
 
 	const actualBefore = await getStyleWidth(selenium, splitter, before);
 	if (adjust === 'before' || adjust === 'both') {
-		t.is(actualBefore, position + 'px', `beforeStyle set for adjust ${adjust} to position ${position}`);
+		t.is(actualBefore, `${position}px`, `beforeStyle set for adjust ${adjust} to position ${position}`);
 	} else {
 		t.is(actualBefore, '', `beforeStyle not set for adjust ${adjust} to position ${position}`);
 	}
 
 	const actualAfter = await getStyleWidth(selenium, splitter, after);
 	if (adjust === 'after' || adjust === 'both') {
-		t.is(actualAfter, (200 - position) + 'px', `beforeStyle set for adjust ${adjust} to position ${position}`);
+		t.is(actualAfter, `${200 - position}px`, `beforeStyle set for adjust ${adjust} to position ${position}`);
 	} else {
 		t.is(actualAfter, '', `beforeStyle not set for adjust ${adjust} to position ${position}`);
 	}

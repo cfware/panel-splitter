@@ -1,5 +1,5 @@
 import test from 'ava';
-import calculateSize from '../calculate-size';
+import calculateSize from '../calculate-size.js';
 
 function checkCalculatedSize(t, [requestedSize, min, max, snap], result) {
 	t.is(calculateSize(requestedSize, min, max, snap), result);
