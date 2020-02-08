@@ -6,4 +6,5 @@ package
 .eslintrc.json
 .travis.yml
 fixtures
-test
+tap-snapshots
+test.js
