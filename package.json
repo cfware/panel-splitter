@@ -3,12 +3,15 @@
 	"version": "0.2.8",
 	"description": "Draggable panel splitter web component",
 	"main": "panel-splitter.js",
+	"type": "module",
 	"scripts": {
 		"release": "standard-version --sign",
-		"test": "xo && nyc ava -sv"
+		"pretest": "cfware-lint .",
+		"test": "nyc -s node test.js|tap-yaml-summary",
+		"posttest": "nyc report"
 	},
 	"engines": {
-		"node": ">=12"
+		"node": ">=13.8.0"
 	},
 	"author": "Corey Farrell",
 	"license": "MIT",
@@ -22,30 +25,19 @@
 	},
 	"homepage": "https://github.com/cfware/panel-splitter#readme",
 	"dependencies": {
-		"@cfware/callback-array-once": "^1.0.1",
-		"@cfware/shadow-element": "^0.10.0"
+		"@cfware/callback-array-once": "^1.0.2",
+		"@cfware/shadow-element": "^0.11.1"
 	},
 	"devDependencies": {
-		"@cfware/ava-selenium-manager": "^0.3.0",
-		"@cfware/eslint-config-browser": "^0.4.0",
-		"@cfware/fastify-test-helper": "^0.4.0",
+		"@cfware/fastify-test-helper": "^0.6.0",
+		"@cfware/lint": "^1.1.1",
 		"@cfware/nyc": "^0.6.0",
-		"ava": "^2.0.0",
+		"@cfware/tap-selenium-manager": "^0.1.0",
 		"chromedriver": "^80.0.0",
 		"geckodriver": "^1.16.2",
+		"libtap": "^0.2.0",
 		"nyc": "^15.0.0",
 		"standard-version": "^7.0.0",
-		"xo": "^0.25.3"
-	},
-	"xo": {
-		"overrides": [
-			{
-				"files": [
-					"panel-splitter.js",
-					"calculate-size.js"
-				],
-				"extends": "@cfware/eslint-config-browser"
-			}
-		]
+		"tap-yaml-summary": "^0.1.0"
 	}
 }

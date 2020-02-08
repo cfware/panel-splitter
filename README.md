@@ -35,15 +35,6 @@ Use to create split panels:
 The application is responsible for initial sizing of the container and panels.
 
 
-## Running tests
-
-Tests are provided by xo and ava.
-
-```sh
-npm install
-npm test
-```
-
 [npm-image]: https://img.shields.io/npm/v/@cfware/panel-splitter.svg
 [npm-url]: https://npmjs.org/package/@cfware/panel-splitter
 [travis-image]: https://travis-ci.org/cfware/panel-splitter.svg?branch=master

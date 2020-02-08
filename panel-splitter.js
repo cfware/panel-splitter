@@ -1,5 +1,5 @@
 import runCallbacks from '@cfware/callback-array-once';
-import {ShadowElement, html} from '@cfware/shadow-element';
+import {ShadowElement, html, template, createBoundEventListeners} from '@cfware/shadow-element';
 
 import calculateSize from './calculate-size.js';
 
@@ -33,17 +33,17 @@ class PanelSplitter extends ShadowElement {
 
 			const handlers = {
 				mousemove: event => {
-					const reqNext = originalPosition + originalNextSize - event[eventVar];
-					let calcNext = calculateSize(reqNext, this.minNext, this.maxNext, this.snapNext);
-					const reqPrev = totalSize - calcNext;
-					const calcPrev = calculateSize(reqPrev, this.minPrev, this.maxPrev, this.snapPrev);
+					const requestNext = originalPosition + originalNextSize - event[eventVar];
+					let calcNext = calculateSize(requestNext, this.minNext, this.maxNext, this.snapNext);
+					const requestPrevious = totalSize - calcNext;
+					const calcPrevious = calculateSize(requestPrevious, this.minPrev, this.maxPrev, this.snapPrev);
 
-					if (reqPrev !== calcPrev) {
-						calcNext = totalSize - calcPrev;
+					if (requestPrevious !== calcPrevious) {
+						calcNext = totalSize - calcPrevious;
 					}
 
 					if (this.adjust !== 'after') {
-						previousElementSibling.style[styleVar] = `${calcPrev}px`;
+						previousElementSibling.style[styleVar] = `${calcPrevious}px`;
 					}
 
 					if (this.adjust !== 'before') {
@@ -58,13 +58,13 @@ class PanelSplitter extends ShadowElement {
 
 			selectionchange();
 			cleanupFns.push(
-				...this.createBoundEventListeners(document, {selectionchange}),
-				...this.createBoundEventListeners(window, handlers)
+				...this[createBoundEventListeners](document, {selectionchange}),
+				...this[createBoundEventListeners](window, handlers)
 			);
 		});
 	}
 
-	get template() {
+	get [template]() {
 		return html`
 			<style>
 				:host {
