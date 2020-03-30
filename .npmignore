@@ -4,7 +4,7 @@ coverage
 nyc.config.cjs
 package
 .eslintrc.json
-.travis.yml
+.github
 fixtures
 tap-snapshots
 test.js

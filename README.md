@@ -1,6 +1,6 @@
 # @cfware/panel-splitter
 
-[![Travis CI][travis-image]][travis-url]
+![Tests][tests-status]
 [![Greenkeeper badge][gk-image]](https://greenkeeper.io/)
 [![NPM Version][npm-image]][npm-url]
 [![NPM Downloads][downloads-image]][downloads-url]
@@ -37,8 +37,7 @@ The application is responsible for initial sizing of the container and panels.
 
 [npm-image]: https://img.shields.io/npm/v/@cfware/panel-splitter.svg
 [npm-url]: https://npmjs.org/package/@cfware/panel-splitter
-[travis-image]: https://travis-ci.org/cfware/panel-splitter.svg?branch=master
-[travis-url]: https://travis-ci.org/cfware/panel-splitter
+[tests-status]: https://github.com/cfware/panel-splitter/workflows/Tests/badge.svg
 [gk-image]: https://badges.greenkeeper.io/cfware/panel-splitter.svg
 [downloads-image]: https://img.shields.io/npm/dm/@cfware/panel-splitter.svg
 [downloads-url]: https://npmjs.org/package/@cfware/panel-splitter
