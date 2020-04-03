@@ -27,7 +27,7 @@
 	"homepage": "https://github.com/cfware/panel-splitter#readme",
 	"dependencies": {
 		"@cfware/callback-array-once": "^1.0.2",
-		"@cfware/shadow-element": "^0.12.0"
+		"@cfware/shadow-element": "^0.13.0"
 	},
 	"devDependencies": {
 		"@cfware/fastify-test-helper": "^0.7.0",
