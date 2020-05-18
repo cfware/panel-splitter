@@ -5,14 +5,13 @@
 	"main": "panel-splitter.js",
 	"type": "module",
 	"scripts": {
-		"release": "standard-version --sign",
 		"pretest": "cfware-lint .",
-		"tests-only": "nyc -s --no-check-coverage node test.js|tap-yaml-summary",
+		"tests-only": "nyc -s node test.js|tap-yaml-summary",
 		"test": "npm run -s tests-only",
-		"posttest": "nyc report"
+		"posttest": "nyc report --check-coverage"
 	},
 	"engines": {
-		"node": ">=13.8.0"
+		"node": ">=14.0.0"
 	},
 	"author": "Corey Farrell",
 	"license": "MIT",
@@ -32,13 +31,12 @@
 	"devDependencies": {
 		"@cfware/fastify-test-helper": "^0.7.0",
 		"@cfware/lint": "^1.1.1",
-		"@cfware/nyc": "^0.6.0",
-		"@cfware/tap-selenium-manager": "^0.1.0",
-		"chromedriver": "^80.0.0",
+		"@cfware/nyc": "^0.7.0",
+		"@cfware/tap-selenium-manager": "^1.0.0",
+		"chromedriver": "^81.0.0",
 		"geckodriver": "^1.16.2",
 		"libtap": "^0.3.0",
 		"nyc": "^15.0.0",
-		"standard-version": "^8.0.0",
 		"tap-yaml-summary": "^0.1.0"
 	}
 }
