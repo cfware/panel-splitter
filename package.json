@@ -33,7 +33,6 @@
 		"@cfware/lint": "^1.1.1",
 		"@cfware/nyc": "^0.7.0",
 		"@cfware/tap-selenium-manager": "^1.0.0",
-		"geckodriver": "^1.16.2",
 		"libtap": "^0.3.0",
 		"nyc": "^15.0.0",
 		"tap-yaml-summary": "^0.1.0"
