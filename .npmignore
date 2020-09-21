@@ -1,6 +1,6 @@
 *.tgz
 coverage
-nyc.config.cjs
+nyc.config.js
 .eslintrc.json
 .github
 fixtures

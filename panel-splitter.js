@@ -1,5 +1,5 @@
 import runCallbacks from '@cfware/callback-array-once';
-import {ShadowElement, html, template, createBoundEventListeners} from '@cfware/shadow-element';
+import ShadowElement, {html, template, createBoundEventListeners, define, stringProperties, booleanProperties, numericProperties} from '@cfware/shadow-element';
 
 import calculateSize from './calculate-size.js';
 
@@ -82,12 +82,12 @@ class PanelSplitter extends ShadowElement {
 	}
 }
 
-PanelSplitter.define('panel-splitter', {
-	stringProps: {
+PanelSplitter[define]('panel-splitter', {
+	[stringProperties]: {
 		adjust: 'both'
 	},
-	booleanProps: ['vertical'],
-	numericProps: {
+	[booleanProperties]: ['vertical'],
+	[numericProperties]: {
 		snapPrev: 8,
 		minPrev: 0,
 		maxPrev: 0,
