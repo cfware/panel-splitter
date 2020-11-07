@@ -1,15 +1,15 @@
 import runCallbacks from '@cfware/callback-array-once';
-import ShadowElement, {html, template, createBoundEventListeners, define, stringProperties, booleanProperties, numericProperties} from '@cfware/shadow-element';
+import ShadowElement, {html, template, createBoundEventListeners, define, reflectStringProperties, reflectBooleanProperties, reflectNumericProperties} from '@cfware/shadow-element';
 
 import calculateSize from './calculate-size.js';
 
-function getVariableNames(vertical) {
+const getVariableNames = vertical => {
 	if (vertical) {
 		return ['clientHeight', 'screenY', 'height'];
 	}
 
 	return ['clientWidth', 'screenX', 'width'];
-}
+};
 
 class PanelSplitter extends ShadowElement {
 	constructor() {
@@ -82,17 +82,14 @@ class PanelSplitter extends ShadowElement {
 	}
 }
 
-PanelSplitter[define]('panel-splitter', {
-	[stringProperties]: {
-		adjust: 'both'
-	},
-	[booleanProperties]: ['vertical'],
-	[numericProperties]: {
-		snapPrev: 8,
-		minPrev: 0,
-		maxPrev: 0,
-		snapNext: 8,
-		minNext: 0,
-		maxNext: 0
-	}
+reflectBooleanProperties(PanelSplitter, ['vertical']);
+reflectStringProperties(PanelSplitter, {adjust: 'both'});
+reflectNumericProperties(PanelSplitter, {
+	snapPrev: 8,
+	minPrev: 0,
+	maxPrev: 0,
+	snapNext: 8,
+	minNext: 0,
+	maxNext: 0
 });
+PanelSplitter[define]('panel-splitter');

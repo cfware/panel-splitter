@@ -25,12 +25,12 @@
 	},
 	"homepage": "https://github.com/cfware/panel-splitter#readme",
 	"dependencies": {
-		"@cfware/callback-array-once": "^1.0.3",
-		"@cfware/shadow-element": "^0.15.0"
+		"@cfware/callback-array-once": "^1.0.4",
+		"@cfware/shadow-element": "^0.16.1"
 	},
 	"devDependencies": {
 		"@cfware/fastify-test-helper": "^0.7.0",
-		"@cfware/lint": "^2.0.1",
+		"@cfware/lint": "^2.0.4",
 		"@cfware/nyc": "^0.7.0",
 		"@cfware/tap-selenium-manager": "^1.1.0",
 		"libtap": "^0.3.0",
