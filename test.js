@@ -1,6 +1,6 @@
-import path from 'path';
-import {promises as fs} from 'fs';
-import {fileURLToPath} from 'url';
+import path from 'node:path';
+import {writeFile} from 'node:fs/promises';
+import {fileURLToPath} from 'node:url';
 
 import t from 'libtap';
 import {grabImage, testBrowser} from '@cfware/tap-selenium-manager';
@@ -19,7 +19,7 @@ const imageFile = fullname => path.join(
 async function processImage(t, element, imageID) {
 	const image64 = await grabImage(element);
 	t.matchSnapshot(image64, imageID);
-	await fs.writeFile(imageFile(`${t.fullname}-${imageID}.png`), image64);
+	await writeFile(imageFile(`${t.fullname}-${imageID}.png`), image64);
 }
 
 function executeDrag(selenium, button, from, to) {
@@ -129,13 +129,13 @@ testCalculatedSize('above max', [75, 0, 50, 0], 50);
 testCalculatedSize('above snap', [75, 0, 0, 50], 75);
 
 t.test('50-100% of snap', async t => {
-	for (let i = 25; i <= 50; i++) {
-		checkCalculatedSize(t, [i, 0, 0, 50], 50);
+	for (let size = 25; size <= 50; size++) {
+		checkCalculatedSize(t, [size, 0, 0, 50], 50);
 	}
 });
 
 t.test('below snap', async t => {
-	for (let i = 0; i <= 24; i++) {
-		checkCalculatedSize(t, [i, 0, 0, 50], 0);
+	for (let size = 0; size <= 24; size++) {
+		checkCalculatedSize(t, [size, 0, 0, 50], 0);
 	}
 });

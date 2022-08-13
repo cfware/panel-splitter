@@ -1,5 +1,5 @@
 import runCallbacks from '@cfware/callback-array-once';
-import ShadowElement, {html, template, createBoundEventListeners, define, reflectStringProperties, reflectBooleanProperties, reflectNumericProperties} from '@cfware/shadow-element';
+import ShadowElement, {html, template, css, adoptedStyleSheets, createBoundEventListeners, define, reflectStringProperties, reflectBooleanProperties, reflectNumericProperties} from '@cfware/shadow-element';
 
 import calculateSize from './calculate-size.js';
 
@@ -23,8 +23,8 @@ class PanelSplitter extends ShadowElement {
 			}
 
 			const {previousElementSibling, nextElementSibling, vertical} = this;
-			const [clientSize, eventVar, styleVar] = getVariableNames(vertical);
-			const originalPosition = mouseDownEvent[eventVar];
+			const [clientSize, eventVariable, styleVariable] = getVariableNames(vertical);
+			const originalPosition = mouseDownEvent[eventVariable];
 			const originalNextSize = nextElementSibling[clientSize];
 			const totalSize = previousElementSibling[clientSize] + originalNextSize;
 			const cleanupFns = [
@@ -33,7 +33,7 @@ class PanelSplitter extends ShadowElement {
 
 			const handlers = {
 				mousemove: event => {
-					const requestNext = originalPosition + originalNextSize - event[eventVar];
+					const requestNext = originalPosition + originalNextSize - event[eventVariable];
 					let calcNext = calculateSize(requestNext, this.minNext, this.maxNext, this.snapNext);
 					const requestPrevious = totalSize - calcNext;
 					const calcPrevious = calculateSize(requestPrevious, this.minPrev, this.maxPrev, this.snapPrev);
@@ -43,18 +43,18 @@ class PanelSplitter extends ShadowElement {
 					}
 
 					if (this.adjust !== 'after') {
-						previousElementSibling.style[styleVar] = `${calcPrevious}px`;
+						previousElementSibling.style[styleVariable] = `${calcPrevious}px`;
 					}
 
 					if (this.adjust !== 'before') {
-						nextElementSibling.style[styleVar] = `${calcNext}px`;
+						nextElementSibling.style[styleVariable] = `${calcNext}px`;
 					}
 				}
 			};
 
-			['blur', 'mouseup', 'mouseleave'].forEach(type => {
+			for (const type of ['blur', 'mouseup', 'mouseleave']) {
 				handlers[type] = () => runCallbacks(cleanupFns);
-			});
+			}
 
 			selectionchange();
 			cleanupFns.push(
@@ -64,21 +64,23 @@ class PanelSplitter extends ShadowElement {
 		});
 	}
 
-	get [template]() {
-		return html`
-			<style>
-				:host {
-					cursor: col-resize;
-					user-select: none;
-					min-width: 4px;
-					min-height: 4px;
-				}
+	static [adoptedStyleSheets] = [
+		css`
+			:host {
+				cursor: col-resize;
+				user-select: none;
+				min-width: 4px;
+				min-height: 4px;
+			}
 
-				:host([vertical]) {
-					cursor: row-resize;
-				}
-			</style>
-		`;
+			:host([vertical]) {
+				cursor: row-resize;
+			}
+		`
+	];
+
+	get [template]() {
+		return html``;
 	}
 }
 
