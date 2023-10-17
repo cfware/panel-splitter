@@ -1,37 +1,37 @@
 <html>
-	<head>
-		<title>&lt;panel-splitter&gt; horizontal test</title>
-		<script type="module" src="panel-splitter.js"></script>
-		<style>
-			html, body {
-				display: inline-block!important;
-				margin: 0px;
-				width: -moz-fit-content;
-			}
+    <head>
+        <title>&lt;panel-splitter&gt; horizontal test</title>
+        <script type="module" src="panel-splitter.js"></script>
+        <style>
+            html, body {
+                display: inline-block!important;
+                margin: 0px;
+                width: -moz-fit-content;
+            }
 
-			.panel {
-				height: 204px;
-				width: 204px;
-				display: flex;
-				background: #fff;
-			}
+            .panel {
+                height: 204px;
+                width: 204px;
+                display: flex;
+                background: #fff;
+            }
 
-			.prev {
-				background: #f00;
-				width: 100px;
-			}
+            .prev {
+                background: #f00;
+                width: 100px;
+            }
 
-			.next {
-				background: #00f;
-				flex: 1 0;
-			}
-		</style>
-	</head>
-	<body>
-		<div id="test" class="panel">
-			<div class="prev"></div>
-			<panel-splitter adjust="before"></panel-splitter>
-			<div class="next"></div>
-		</div>
-	</body>
+            .next {
+                background: #00f;
+                flex: 1 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="test" class="panel">
+            <div class="prev"></div>
+            <panel-splitter adjust="before"></panel-splitter>
+            <div class="next"></div>
+        </div>
+    </body>
 </html>

@@ -1,40 +1,41 @@
 {
-	"name": "@cfware/panel-splitter",
-	"version": "0.7.0",
-	"description": "Draggable panel splitter web component",
-	"main": "panel-splitter.js",
-	"type": "module",
-	"scripts": {
-		"pretest": "cfware-lint .",
-		"tests-only": "nyc -s node test.js|tap-yaml-summary",
-		"test": "npm run -s tests-only",
-		"posttest": "nyc report --check-coverage"
-	},
-	"engines": {
-		"node": ">=16.12.0"
-	},
-	"author": "Corey Farrell",
-	"license": "MIT",
-	"keywords": [],
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/cfware/panel-splitter.git"
-	},
-	"bugs": {
-		"url": "https://github.com/cfware/panel-splitter/issues"
-	},
-	"homepage": "https://github.com/cfware/panel-splitter#readme",
-	"dependencies": {
-		"@cfware/callback-array-once": "^1.0.4",
-		"@cfware/shadow-element": "^0.17.0"
-	},
-	"devDependencies": {
-		"@cfware/fastify-test-helper": "^0.8.0",
-		"@cfware/lint": "^3.0.4",
-		"@cfware/nyc": "^0.7.1",
-		"@cfware/tap-selenium-manager": "^2.0.0",
-		"libtap": "^1.4.0",
-		"nyc": "^15.1.0",
-		"tap-yaml-summary": "^0.2.0"
-	}
+    "name": "@cfware/panel-splitter",
+    "version": "0.7.0",
+    "description": "Draggable panel splitter web component",
+    "main": "panel-splitter.js",
+    "exports": "./panel-splitter.js",
+    "type": "module",
+    "scripts": {
+        "pretest": "cfware-lint .",
+        "tests-only": "nyc -s node test.js|tap-yaml-summary",
+        "test": "npm run -s tests-only",
+        "posttest": "nyc report --check-coverage"
+    },
+    "engines": {
+        "node": ">=18"
+    },
+    "author": "Corey Farrell",
+    "license": "MIT",
+    "keywords": [],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/cfware/panel-splitter.git"
+    },
+    "bugs": {
+        "url": "https://github.com/cfware/panel-splitter/issues"
+    },
+    "homepage": "https://github.com/cfware/panel-splitter#readme",
+    "dependencies": {
+        "@cfware/callback-array-once": "^1",
+        "@cfware/shadow-element": "^1"
+    },
+    "devDependencies": {
+        "@cfware/fastify-test-helper": "^1",
+        "@cfware/lint": "^4",
+        "@cfware/nyc": "^1",
+        "@cfware/tap-selenium-manager": "^3",
+        "libtap": "^1",
+        "nyc": "^15",
+        "tap-yaml-summary": "^0.2"
+    }
 }
