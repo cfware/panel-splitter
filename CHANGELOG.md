@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0](https://github.com/cfware/panel-splitter/compare/v0.7.0...v1.0.0) (2023-10-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* Update dependencies
+
+### Features
+
+* Update dependencies ([cd18c50](https://github.com/cfware/panel-splitter/commit/cd18c50bc126cc0cb975615c89f36abaff9db6bc))
+
 ## [0.7.0](https://github.com/cfware/panel-splitter/compare/v0.6.0...v0.7.0) (2022-08-14)
 
 
