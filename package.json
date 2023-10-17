@@ -1,6 +1,6 @@
 {
     "name": "@cfware/panel-splitter",
-    "version": "0.7.0",
+    "version": "1.0.0",
     "description": "Draggable panel splitter web component",
     "main": "panel-splitter.js",
     "exports": "./panel-splitter.js",
